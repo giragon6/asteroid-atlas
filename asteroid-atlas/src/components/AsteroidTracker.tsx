@@ -44,7 +44,7 @@ const AsteroidTracker = ({
       <h1>Featured Asteroid</h1>
       <Asteroid asteroidData={featured} />
       <Button
-        onClick={(e) => setShowAsteroidList(!showAsteroidList)}
+        onClick={() => setShowAsteroidList(!showAsteroidList)}
         children={`Show ${showAsteroidList ? "less" : "more"}`}
       />
       {showAsteroidList ? <AsteroidList NEO={NEO} /> : null}
