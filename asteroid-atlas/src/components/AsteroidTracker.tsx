@@ -5,13 +5,13 @@ type AsteroidTrackerParams = {
   featuredID?: string;
   date?: Date;
   startDate?: Date;
-  endDate?: Date | null;
+  endDate?: Date;
 };
 
 const AsteroidTracker = ({
   featuredID,
   startDate = new Date(),
-  endDate = null,
+  endDate = startDate,
 }: AsteroidTrackerParams) => {
   const [data, error] = useData(startDate, endDate);
 
