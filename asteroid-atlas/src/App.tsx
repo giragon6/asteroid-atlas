@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <NavBar></NavBar>
-      <AsteroidTracker startDate={new Date(2024, 10, 17)}></AsteroidTracker>
+      <AsteroidTracker startDate={new Date(2024, 10, 18)}></AsteroidTracker>
       <Starfield />
     </>
   );
