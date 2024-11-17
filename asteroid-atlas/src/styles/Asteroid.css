@@ -1,0 +1,137 @@
+.asteroid-list-container {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+}
+
+.asteroid-card {
+  width: 320px;
+  margin: 16px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #150123, #251b59);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+  color: #f0f0f0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.asteroid-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.asteroid-title {
+  font-size: 1.8em;
+  margin-bottom: 16px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.asteroid-info {
+  font-size: 1em;
+  color: #dcdcdc;
+  margin-bottom: 10px;
+}
+
+.asteroid-info p {
+  margin: 10px 0;
+}
+
+.asteroid-info b {
+  color: #525b92; /* Bright yellow for emphasis */
+}
+
+.asteroid-card p {
+  line-height: 1.6;
+}
+
+.asteroid-card:hover .asteroid-title {
+  color: #525b92; /* Change title color on hover */
+}
+
+/* Container for the entire asteroid with its labels */
+.asteroid-frame {
+  display: inline-block;
+  width: auto;
+  height: 50%;
+  border: 2px solid white;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  display: inline-block;
+}
+
+/* Container for the asteroid image */
+
+.asteroid-image-container {
+  position: relative;
+  margin-bottom: 10px;
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 200px;
+  width: auto;
+}
+
+.asteroid-card:hover .asteroid-image {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.asteroid-image-container {
+  position: relative;
+  margin-bottom: 10px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center; /* Center the image vertically */
+  align-items: center; /* Center the image horizontally */
+  height: 200px;
+  width: auto;
+}
+
+.asteroid-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+  animation: spin 4s infinite linear; /* Apply rotation animation here */
+  animation-play-state: paused; /* Pause the rotation initially */
+}
+
+.asteroid-card:hover .asteroid-image {
+  animation-play-state: running; /* Resume rotation on hover */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.asteroid-diameters {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: auto;
+  text-align: center;
+}

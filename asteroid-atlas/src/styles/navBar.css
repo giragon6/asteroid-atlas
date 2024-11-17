@@ -1,0 +1,76 @@
+/* Navigation Styles */
+
+.nav {
+    height: 15vh; 
+    width:100%;
+    background: #150123;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 80000;
+  }
+  
+  .nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav ul li {
+    position: relative;
+  }
+  
+  .nav ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fffaf1;
+    font-size: 14px;
+    font-style: italic;
+    transition: color 0.5s, transform 0.3s;
+  }
+  
+  .nav ul li .icon {
+    font-size: 90px !important;
+    color: #525b92;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav ul li span {
+    font-size: 12px;
+    font-style: italic;
+    color: #525b92;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    position: absolute;
+    top: 40px;
+    text-align: center;
+    color: #525b92;
+  }
+  
+  .fa-solid {
+    font-size: 32px;
+  }
+  
+  .nav ul li a:hover .icon {
+    transform: scale(1.2);
+    color: #525b92;
+  }
+  
+  .nav ul li a:hover span {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  .nav ul li a:hover {
+    color: #525b92;
+  }
+  

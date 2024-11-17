@@ -1,14 +1,16 @@
-import './App.css'
-import AsteroidTracker from './components/AsteroidTracker';
-import NavBar from './components/NavBar';
+import "./styles/App.css";
+import AsteroidTracker from "./components/AsteroidTracker";
+import NavBar from "./components/NavBar";
+import Starfield from "./animations/Starfield";
 
 function App() {
   return (
     <>
       <NavBar></NavBar>
-      <AsteroidTracker></AsteroidTracker>
+      <AsteroidTracker startDate={new Date(2024, 10, 17)}></AsteroidTracker>
+      <Starfield />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

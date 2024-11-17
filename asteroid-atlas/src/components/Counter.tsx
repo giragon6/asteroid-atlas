@@ -32,7 +32,7 @@ const Counter = ({ date }: CounterParams) => {
     const countdown = formatMs(date.getTime() - now.getTime());
 
     return (
-        <h2>Countdown: {countdown.d} days, {countdown.h} hours, {countdown.m} minutes, {countdown.s} seconds</h2>
+        <p><b>Countdown Until Close Approach:</b> {countdown.d} days, {countdown.h} hours, {countdown.m} minutes, {countdown.s} seconds</p>
     );
 };
 
