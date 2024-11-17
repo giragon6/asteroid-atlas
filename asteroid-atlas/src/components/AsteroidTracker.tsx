@@ -24,7 +24,8 @@ const AsteroidTracker = ({
   }
 
   const NEO = data.near_earth_objects;
-  const dateNEO = data.near_earth_objects[startDate.toString().slice(10)];
+  // const dateNEO = data.near_earth_objects[startDate.toString().slice(10)];
+  const dateNEO = data.near_earth_objects['2015-11-16'];
   const featured =
     featuredID == undefined
       ? dateNEO.filter((NEO) => NEO.id == featuredID)[0]
