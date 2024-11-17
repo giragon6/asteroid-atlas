@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import AsteroidValue from "../types/AsteroidValue";
-import fs from 'node:fs';
 
 type AsteroidResponse = {
   links: {
@@ -13,30 +12,6 @@ type AsteroidResponse = {
     [key: string]: AsteroidValue[];
   };
 };
-
-async function saveToCache(data: JSON) {
-    fs.writeFile('./cache/asteroidDataCache.json', JSON.stringify(data), (error) => {
-      if (error) {
-          throw error;
-      }
-    });
-}
-
-async function fetchCache() : Promise<AsteroidResponse | null> {
-  try {
-    // Make the fetch request
-    return fetch('../cache/asteroidDataCache.json')
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        return (response as AsteroidResponse) || null;
-      });
-  } catch (error) {
-    console.error("Fetch error:", error);
-    return null;
-  }
-}
 
 async function fetchAsteroidData(
   startDate: Date,
@@ -59,10 +34,6 @@ async function fetchAsteroidData(
     return fetch(API_URL)
       .then((response) => {
         if (!response.ok) {
-          if (response.status == 429) {
-            console.log("Too many API requests, fetching cache")
-            return fetchCache();
-          }
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.json();
@@ -74,7 +45,6 @@ async function fetchAsteroidData(
         return response;
       })
       .then((response) => {
-        saveToCache(response);
         return (response as AsteroidResponse) || null;
       });
   } catch (error) {
