@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AsteroidValue from "../types/AsteroidValue";
+import { stringify } from "querystring";
 
 type AsteroidResponse = {
   links: {
@@ -17,17 +18,25 @@ async function fetchAsteroidData(
   startDate: Date,
   endDate: Date | null
 ): Promise<AsteroidResponse | null> {
-  const API_URL = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate.toLocaleDateString(
-    "fr-CA",
-    { year: "numeric", month: "2-digit", day: "2-digit" }
-  )}${
-    endDate &&
-    `&end_date=${endDate.toLocaleDateString("fr-CA", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    })}`
-  }&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
+  var API_URL: string;
+  if (endDate == null) {
+    API_URL = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate.toLocaleDateString(
+      "fr-CA",
+      { year: "numeric", month: "2-digit", day: "2-digit" }
+    )}&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
+  } else {
+    API_URL = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate.toLocaleDateString(
+      "fr-CA",
+      { year: "numeric", month: "2-digit", day: "2-digit" }
+    )}&${
+      `&end_date=${endDate.toLocaleDateString("fr-CA", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      })}`
+    }&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
+    
+  }
 
   try {
     // Make the fetch request
